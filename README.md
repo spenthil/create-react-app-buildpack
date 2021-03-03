@@ -1,7 +1,7 @@
 Heroku Buildpack for create-react-app
 =====================================
 
-Deploy React.js web apps generated with [create-react-app](https://github.com/facebook/create-react-app). Automates deployment with the built-in bundler and serves it up via [Nginx](http://nginx.org/en/). See the [introductory blog post](https://blog.heroku.com/deploying-react-with-zero-configuration) and entry in [Heroku elements](https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack).
+Deploy React.js web apps generated with [create-react-app](https://github.com/facebook/create-react-app). Automates deployment with the built-in bundler and serves it up via [Nginx](http://nginx.org/en/). See the [introductory blog post](https://blog.heroku.com/deploying-react-with-zero-configuration) and entry in [Heroku elements](https://elements.heroku.com/buildpacks/spenthil/create-react-app-buildpack).
 
 * 🚦 [Purpose](#user-content-purpose)
 * ⚠️ [Requirements](#user-content-requires)
@@ -66,7 +66,7 @@ Ensure [requirements](#user-content-requires) are met, then execute the followin
 ```bash
 npx create-react-app@3.x $APP_NAME
 cd $APP_NAME
-heroku create $APP_NAME --buildpack mars/create-react-app
+heroku create $APP_NAME --buildpack https://github.com/spenthil/create-react-app-buildpack.git
 git push heroku master
 heroku open
 ```
@@ -97,7 +97,7 @@ cd $APP_NAME
 ✏️ *Replace `$APP_NAME` with the name for your unique app.*
 
 ```bash
-heroku create $APP_NAME --buildpack mars/create-react-app
+heroku create $APP_NAME --buildpack https://github.com/mars/create-react-app-buildpack.git
 ```
 
 This command:
@@ -154,7 +154,7 @@ Heroku CI uses [`app.json`](https://devcenter.heroku.com/articles/app-json-schem
 {
   "buildpacks": [
     {
-      "url": "mars/create-react-app"
+      "url": "https://github.com/mars/create-react-app-buildpack.git"
     }
   ]
 }
@@ -473,7 +473,7 @@ Troubleshooting
     If it's not using `create-react-app-buildpack`, then set it:
 
     ```bash
-    heroku buildpacks:set mars/create-react-app
+    heroku buildpacks:set https://github.com/spenthil/create-react-app-buildpack.git
     ```
 
     …and deploy with the new buildpack:
